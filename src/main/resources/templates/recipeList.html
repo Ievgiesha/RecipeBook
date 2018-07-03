@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipe list</title>
+    <link rel="stylesheet" type="text/css" media="all" href="../../static/recipes.css" th:href="@{/css/recipes.css}">
+</head>
+<body>
+<form action="#" th:action="@{/recipes}" th:object="${command}" method="post">
+    <p>Recipe name: <input type="text" th:field="*{addRecipeNameValue}"/></p>
+    <p>Recipe text: <input type="text" th:field="*{addRecipeTextValue}"/></p>
+    <p><input type="submit" value="Submit"/> <input type="reset" value="Reset"/></p>
+</form>
+Here will be list of all recipes
+<div th:if="${recipes != null}">
+    <div th:each="recipe:${recipes}" class="recipe-tile">
+        <span th:text="${recipe.name}" class="recipe-name"/> <br/>
+        <span th:text="${recipe.recipeText}" class="recipe-recipeText"/>
+        <form action="#" th:action="@{/recipes/delete}" th:object="${command}" method="post">
+            <button type="submit" name="recipeNameToDelete" th:value="${recipe.name}" th:field="*{recipeNameToDelete}">Delete</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

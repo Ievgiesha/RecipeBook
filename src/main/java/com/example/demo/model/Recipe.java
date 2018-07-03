@@ -12,12 +12,12 @@ import java.util.Date;
 @Data
 @Builder
 @AllArgsConstructor
-public class Recipe {
+public class Recipe{
     @Id
     private String id;
     private String name;
     private String recipeText;
-    private String date = dateNow();
+    private String date ;
 
 
     String dateNow() {
@@ -47,6 +47,12 @@ public class Recipe {
 
     @Override
     public String toString() {
-        return new StringBuilder().append("Name of receipte : ").append(name).append(" . ").append("Contains : ").append(recipeText).append(" . ").append(" Created :").append(date).toString();
+        return new StringBuilder().append("Name of receipte : ")
+                .append(name)
+                .append(" . ")
+                .append("Contains : ")
+                .append(recipeText)
+                .append(" . ")
+                .append(" Created :").append(dateNow()).toString();
     }
 }

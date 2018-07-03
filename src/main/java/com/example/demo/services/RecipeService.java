@@ -14,6 +14,7 @@ import java.util.List;
 public class RecipeService {
     @Autowired
     private RecipeRepository recipeRepository;
+    Recipe recipe;
 
     public void addRecipe(String nameOfReceipts, String text) {
         recipeRepository.save(Recipe.builder().name(nameOfReceipts).recipeText(text).date(dateNow()).build());
@@ -37,8 +38,8 @@ public class RecipeService {
 
     public void deleteRecipe(String name) {
         if (!recipeRepository.findByName(name).isEmpty()) {
-            recipeRepository.findByName(name).remove(name);
-        }//TODO
+            recipeRepository.findByName(name).remove(recipe);
+        }
     }
 
     public void addRecipe(RecipeCommands commands) {

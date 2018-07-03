@@ -1,0 +1,11 @@
+.recipe-tile{
+    border: 1px;
+}
+.recipe-name{
+    text: 16px;
+    color: cyan;
+}
+.recipe-recipeText{
+    text: 12px;
+    color: lightcoral;
+}
