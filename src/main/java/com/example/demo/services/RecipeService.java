@@ -36,10 +36,8 @@ public class RecipeService {
         return recipeRepository.findAll();
     }
 
-    public void deleteRecipe(String name) {
-        if (!recipeRepository.findByName(name).isEmpty()) {
-            recipeRepository.findByName(name).remove(recipe);
-        }
+    public void deleteRecipe(String id) {
+        recipeRepository.findById(id).ifPresent(recipe ->recipeRepository.delete(recipe));
     }
 
     public void addRecipe(RecipeCommands commands) {

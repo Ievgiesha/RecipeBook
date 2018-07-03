@@ -29,7 +29,7 @@ public class RecipeController {
     }
     @PostMapping("/recipes/delete")
     public String deleteRecipe(@ModelAttribute RecipeCommands commands){
-        recipeService.deleteRecipe(commands.recipeNameToDelete);
+        recipeService.deleteRecipe(commands.recipeIdToDelete);
         return "redirect:/recipes";
     }
 }
