@@ -41,6 +41,13 @@ public class RecipeService {
     }
 
     public void addRecipe(RecipeCommands commands) {
-        recipeRepository.save(Recipe.builder().name(commands.addRecipeNameValue).recipeText(commands.getAddRecipeTextValue()).build());
+        recipeRepository.save(Recipe.builder().name(commands.getAddRecipeNameValue()).recipeText(commands.getAddRecipeTextValue()).build());
+    }
+    public void updateRecipe(Recipe recipe){
+        recipeRepository.save(recipe);
+    }
+    public Recipe findRecipeById(String id) {
+       return recipeRepository.findById(id).get();
+
     }
 }

@@ -7,4 +7,6 @@ public class RecipeCommands {
     public String addRecipeNameValue;
     public String addRecipeTextValue;
     public String recipeIdToDelete;
+    public String recipeToUpdate;
+
 }

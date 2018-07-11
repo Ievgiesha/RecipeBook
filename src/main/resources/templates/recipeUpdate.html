@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipe update</title>
+</head>
+<body>
+<form action="#" th:action="@{/recipes/update}" th:object="${recipeToUpdate}" method="post">
+    <p>Recipe name: <input type="text" th:field="*{name}"/></p>
+    <p>Recipe text: <input type="text" th:field="*{recipeText}"/></p>
+    <p><input type="submit" value="Update"/> <input type="reset" value="Reset"/></p>
+</form>
+</body>
+</html>

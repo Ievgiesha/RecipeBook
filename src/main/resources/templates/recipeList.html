@@ -15,10 +15,13 @@
 Here will be list of all recipes
 <div th:if="${recipes != null}">
     <div th:each="recipe:${recipes}" class="recipe-tile">
-        <span th:text="${recipe.name}" class="recipe-name"/> <br/>
+      <br>  <span th:text="${recipe.name}" class="recipe-name"/> <br/>
         <span th:text="${recipe.recipeText}" class="recipe-recipeText"/>
         <form action="#" th:action="@{/recipes/delete}" th:object="${command}" method="post">
             <button type="submit" name="recipeIdToDelete" th:value="${recipe.id}" th:field="*{recipeIdToDelete}">Delete</button>
+        </form>
+        <form action="#" th:action="@{/recipes/update}" th:object="${command}" method="get">
+            <button type="submit" name="recipeToUpdate" th:value="${recipe.id}" th:field="*{recipeToUpdate}">Update</button>
         </form>
     </div>
 </div>

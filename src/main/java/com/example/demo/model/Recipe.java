@@ -17,15 +17,16 @@ public class Recipe{
     private String id;
     private String name;
     private String recipeText;
+
     private String date ;
 
-
-    String dateNow() {
+   private String dateNow() {
         String pattern = "MM-dd-yyyy";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-        String date = simpleDateFormat.format(new Date());
+        date = simpleDateFormat.format(new Date());
         return date;
     }
+
 
     @Override
     public boolean equals(Object o) {
@@ -47,12 +48,28 @@ public class Recipe{
 
     @Override
     public String toString() {
-        return new StringBuilder().append("Name of receipte : ")
+        return new StringBuilder().append("Name of recipe : ")
                 .append(name)
                 .append(" . ")
                 .append("Contains : ")
                 .append(recipeText)
                 .append(" . ")
                 .append(" Created :").append(dateNow()).toString();
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setRecipeText(String recipeText) {
+        this.recipeText = recipeText;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getRecipeText() {
+        return recipeText;
     }
 }
